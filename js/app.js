@@ -129,7 +129,7 @@ const renderFooter = () => {
     contactBtn.href = data.contactButton.href;
     contactBtn.innerHTML = `<i data-lucide="send" class="w-5 h-5 mr-2"></i> ${data.contactButton.text}`;
     footerRoot.appendChild(contactBtn);
-    const statusP = createElement('p', 'text-xs mt-6 text-gray-600');
+    const statusP = createElement('p', 'text-xs mt-10 text-gray-600');
     statusP.innerHTML = '&copy; 2024 Sobodh Jagaran. System Status: <span class="text-green-500">OPERATIONAL.</span>';
     footerRoot.appendChild(statusP);
 }
