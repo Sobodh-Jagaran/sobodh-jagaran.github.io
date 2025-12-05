@@ -1,16 +1,14 @@
 const resumeData = {
     hero: {
         title: "SOBODH JAGARAN",
-        subtitle: "SYSTEM.ARCHITECT.POLYGLOT",
-        experience: "10+ Years in Enterprise & Manufacturing Systems"
+        subtitle: "POLYGLOT FULL-STACK DEVELOPER & SYSTEMS ARCHITECT"
     },
     contact: {
         email: "sobodh10@gmail.com",
-        linkedin: "#", 
-        upwork: "#"    
+        linkedin: "https://www.linkedin.com/in/sobodh-jagaran/",  
     },
     summary: {
-        title: "[ EXECUTIVE_SUMMARY ]",
+        title: "EXECUTIVE SUMMARY",
         icon: "terminal",
         paragraphs: [
             "Polyglot Full-Stack Developer with 10+ years of experience architecting scalable systems, integrating complex enterprise technologies, and automating mission-critical workflows. Experience in the electronic manufacturing industry has instilled a development approach rooted in **precision, stability, and long-term reliability.**",
@@ -18,7 +16,7 @@ const resumeData = {
         ]
     },
     capabilities: {
-        title: "[ CORE_CAPABILITIES ]",
+        title: "CORE CAPABILITIES",
         items: [
             {
                 title: "Back-End: Enterprise Grade",
@@ -47,7 +45,7 @@ const resumeData = {
         ]
     },
     projects: {
-        title: "[ PROJECT_HIGHLIGHTS ]",
+        title: "PROJECT HIGHLIGHTS",
         items: [
             {
                 title: "MISSION-CRITICAL DESKTOP AUTOMATION BOT (RPA)",
