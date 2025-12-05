@@ -4,6 +4,7 @@ const resumeData = {
         subtitle: "POLYGLOT FULL-STACK DEVELOPER & SYSTEMS ARCHITECT"
     },
     contact: {
+        phone: "+27 81 7372 497",
         email: "sobodh10@gmail.com",
         linkedin: "https://www.linkedin.com/in/sobodh-jagaran/",  
     },
