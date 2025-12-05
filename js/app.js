@@ -15,13 +15,14 @@ const renderHeader = () => {
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400', data.title));
     heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2', data.subtitle));
     // Right side (Contact Info)
-    const contactInfo = createElement('div', 'mt-6 md:mt-0 text-right space-y-2');
+    const contactInfo = createElement('div', 'mt-6 md:mt-0 text-left space-y-2');
     const createContactLink = (icon, text, href) => {
         const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 block flex items-center justify');
         a.href = href;
         a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 mr-2"></i> &#x27A4; ${text}`;
         return a;
     };
+    contactInfo.appendChild(createContactLink('phone', contact.phone, `tel:${contact.phone}`));
     contactInfo.appendChild(createContactLink('mail', contact.email, `mailto:${contact.email}`));
     contactInfo.appendChild(createContactLink('linkedin', contact.linkedin, contact.linkedin));
     flexContainer.appendChild(heroInfo);
