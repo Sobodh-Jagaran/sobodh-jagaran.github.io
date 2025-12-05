@@ -22,7 +22,7 @@ const renderHeader = () => {
     };
     const contactLinks = [{ 
             icon: 'phone', 
-            href: `tel:${contact.phone.replace(/[^\d+]/g, '')}`, 
+            href: `tel:${contact.phone.replace(/[^\d\s+]/g, '')}`,
             display: `${contact.phone}` 
         }, { 
             icon: 'mail', 
