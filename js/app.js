@@ -13,11 +13,11 @@ const renderHeader = () => {
     const heroInfo = createElement('div', '');
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
     heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2 text-center', data.subtitle));
-    const contactInfo = createElement('div', 'mt-6 flex flex-wrap gap-x-4 gap-y-2 text-left items-center');
+    const contactInfo = createElement('div', 'mt-2 flex flex-wrap gap-x-4 gap-y-2 text-left items-center');
     const createContactLink = (icon, text, href) => {
-        const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 inline-flex items-center text-sm');
+        const a = createElement('a', 'text-blue-200 hover:text-blue-300 transition duration-200 inline-flex items-center text-sm');
         a.href = href;
-        a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 mr-1"></i> ${text}`;
+        a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 text-blue-400 mr-2"></i> ${text}`;
         return a;
     };
     const contactLinks = [{ 
@@ -41,7 +41,7 @@ const renderHeader = () => {
             linkData.display
         ));
         if (index < contactLinks.length - 1) {
-            const separator = createElement('span', 'text-gray-600 text-sm font-extrabold');
+            const separator = createElement('span', 'text-gray-700 text-sm font-light px-2');
             separator.textContent = '|';
             contactInfo.appendChild(separator);
         }
