@@ -19,11 +19,11 @@ const renderHeader = () => {
     const createContactLink = (icon, text, href) => {
         const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 block flex items-center justify-end');
         a.href = href;
-        a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 mr-2"></i> > ${text}`;
+        a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 mr-2"></i> &#x27A4; ${text}`;
         return a;
     };
-    contactInfo.appendChild(createContactLink('mail', 'Email_Address', `mailto:${contact.email}`));
-    contactInfo.appendChild(createContactLink('linkedin', 'LinkedIn_Profile', contact.linkedin));
+    contactInfo.appendChild(createContactLink('mail', contact.email, `mailto:${contact.email}`));
+    contactInfo.appendChild(createContactLink('linkedin', contact.linkedin, contact.linkedin));
     flexContainer.appendChild(heroInfo);
     flexContainer.appendChild(contactInfo);
     container.appendChild(flexContainer);
