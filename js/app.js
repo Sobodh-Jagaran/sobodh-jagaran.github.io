@@ -22,9 +22,32 @@ const renderHeader = () => {
         a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 mr-1"></i> ${text}`;
         return a;
     };
-    contactInfo.appendChild(createContactLink('phone', contact.phone, `tel:${contact.phone}`));
-    contactInfo.appendChild(createContactLink('mail', contact.email, `mailto:${contact.email}`));
-    contactInfo.appendChild(createContactLink('linkedin', contact.linkedin, contact.linkedin));
+    const contactLinks = [{ 
+            icon: 'phone', 
+            href: `tel:${contact.phone.replace(/[^0-9+]/g, '')}`, 
+            display: `${contact.phone}` 
+        }, { 
+            icon: 'mail', 
+            href: `mailto:${contact.email}`, 
+            display: `${contact.email}` 
+        }, { 
+            icon: 'linkedin', 
+            href: contact.linkedin, 
+            display: `LINKEDIN_PROFILE` 
+        },
+    ];
+    contactLinks.forEach((linkData, index) => {
+        contactInfo.appendChild(createContactLink(
+            linkData.icon, 
+            linkData.href, 
+            linkData.display
+        ));
+        if (index < contactLinks.length - 1) {
+            const separator = createElement('span', 'text-gray-600 text-sm font-extrabold');
+            separator.textContent = '|';
+            contactInfo.appendChild(separator);
+        }
+    });
     heroInfo.appendChild(contactInfo);
     flexContainer.appendChild(heroInfo);
     container.appendChild(flexContainer);
