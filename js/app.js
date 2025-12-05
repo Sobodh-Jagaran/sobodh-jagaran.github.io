@@ -31,7 +31,7 @@ const renderHeader = () => {
         }, { 
             icon: 'linkedin', 
             href: contact.linkedin, 
-            display: `LINKEDIN_PROFILE` 
+            display: contact.linkedin 
         },
     ];
     contactLinks.forEach((linkData, index) => {
