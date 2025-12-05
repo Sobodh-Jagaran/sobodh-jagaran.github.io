@@ -10,11 +10,9 @@ const renderHeader = () => {
     const contact = resumeData.contact;
     const container = createElement('div', 'max-w-6xl mx-auto p-6 md:p-12');
     const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-center items-start');
-    // Left side (Hero Info)
     const heroInfo = createElement('div', '');
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
     heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2 text-center', data.subtitle));
-    // Right side (Contact Info)
     const contactInfo = createElement('div', 'mt-6 flex flex-wrap gap-x-4 gap-y-2 text-left items-center');
     const createContactLink = (icon, text, href) => {
         const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 inline-flex items-center text-sm');
