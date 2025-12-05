@@ -12,21 +12,21 @@ const renderHeader = () => {
     const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-between items-start');
     // Left side (Hero Info)
     const heroInfo = createElement('div', '');
-    heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400', data.title));
-    heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2', data.subtitle));
+    heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
+    heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2 text-center', data.subtitle));
     // Right side (Contact Info)
-    const contactInfo = createElement('div', 'mt-6 md:mt-0 text-left space-y-2');
+    const contactInfo = createElement('div', 'mt-6 flex flex-wrap gap-x-4 gap-y-2 text-left items-center');
     const createContactLink = (icon, text, href) => {
-        const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 block flex items-center justify');
+        const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 inline-flex items-center text-sm');
         a.href = href;
-        a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 mr-2"></i> &#x27A4; ${text}`;
+        a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 mr-1"></i> &#x27A4; ${text}`;
         return a;
     };
     contactInfo.appendChild(createContactLink('phone', contact.phone, `tel:${contact.phone}`));
     contactInfo.appendChild(createContactLink('mail', contact.email, `mailto:${contact.email}`));
     contactInfo.appendChild(createContactLink('linkedin', contact.linkedin, contact.linkedin));
+    heroInfo.appendChild(contactInfo);
     flexContainer.appendChild(heroInfo);
-    flexContainer.appendChild(contactInfo);
     container.appendChild(flexContainer);
     headerRoot.appendChild(container);
 };
