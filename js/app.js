@@ -9,7 +9,7 @@ const renderHeader = () => {
     const data = resumeData.hero;
     const contact = resumeData.contact;
     const container = createElement('div', 'max-w-6xl mx-auto p-6 md:p-12');
-    const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-between items-start');
+    const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-center items-start');
     // Left side (Hero Info)
     const heroInfo = createElement('div', '');
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
