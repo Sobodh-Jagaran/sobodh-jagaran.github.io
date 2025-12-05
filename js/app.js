@@ -24,7 +24,6 @@ const renderHeader = () => {
     };
     contactInfo.appendChild(createContactLink('mail', 'Email_Address', `mailto:${contact.email}`));
     contactInfo.appendChild(createContactLink('linkedin', 'LinkedIn_Profile', contact.linkedin));
-    contactInfo.appendChild(createContactLink('award', 'Upwork_Channel', contact.upwork));
     flexContainer.appendChild(heroInfo);
     flexContainer.appendChild(contactInfo);
     container.appendChild(flexContainer);
