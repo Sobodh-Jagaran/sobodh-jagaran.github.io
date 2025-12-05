@@ -17,7 +17,7 @@ const renderHeader = () => {
     // Right side (Contact Info)
     const contactInfo = createElement('div', 'mt-6 md:mt-0 text-right space-y-2');
     const createContactLink = (icon, text, href) => {
-        const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 block flex items-center justify-end');
+        const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 block flex items-center justify');
         a.href = href;
         a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 mr-2"></i> &#x27A4; ${text}`;
         return a;
