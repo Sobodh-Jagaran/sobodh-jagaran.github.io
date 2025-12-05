@@ -19,7 +19,7 @@ const renderHeader = () => {
     const createContactLink = (icon, text, href) => {
         const a = createElement('a', 'text-blue-400 hover:text-white transition duration-200 inline-flex items-center text-sm');
         a.href = href;
-        a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 mr-1"></i> &#x27A4; ${text}`;
+        a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 mr-1"></i> ${text}`;
         return a;
     };
     contactInfo.appendChild(createContactLink('phone', contact.phone, `tel:${contact.phone}`));
