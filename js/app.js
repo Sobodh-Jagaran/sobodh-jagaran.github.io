@@ -60,7 +60,7 @@ const renderHeader = () => {
 const renderSummary = () => {
     const root = document.getElementById('content-root');
     const data = resumeData.summary;
-    const section = createElement('section', 'mb-16 p-8 bg-[#161b22] rounded-sm shadow-2xl border-t-4 border-blue-500');
+    const section = createElement('section', 'mt-6 mb-6 p-8 bg-[#161b22] rounded-sm shadow-2xl border-t-4 border-blue-500');
     // Header
     const header = createElement('h2', 'text-2xl font-bold text-blue-400 mb-4 flex items-center');
     header.innerHTML = `<i data-lucide="${data.icon}" class="w-6 h-6 mr-3 text-blue-400"></i> ${data.title}`;
@@ -77,7 +77,7 @@ const renderSummary = () => {
 const renderCapabilities = () => {
     const root = document.getElementById('content-root');
     const data = resumeData.capabilities;
-    const section = createElement('section', 'mb-16');
+    const section = createElement('section', 'mb-6');
     section.appendChild(createElement('h2', 'section-header', data.title));
     const gridContainer = createElement('div', 'grid sm:grid-cols-1 lg:grid-cols-3 gap-6');
     data.items.forEach(item => {
@@ -98,7 +98,7 @@ const renderCapabilities = () => {
 const renderProjects = () => {
     const root = document.getElementById('content-root');
     const data = resumeData.projects;
-    const section = createElement('section', 'mb-16');
+    const section = createElement('section', 'mb-6');
     section.appendChild(createElement('h2', 'section-header', data.title));
     const spaceContainer = createElement('div', 'space-y-8');
     data.items.forEach(project => {
