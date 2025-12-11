@@ -39,7 +39,7 @@ const resumeData = {
             },
             {
                 title: "Architectural Principles",
-                icon: "architecture",
+                icon: "tower",
                 color: "yellow-500",
                 skills: ["Scalable Design", "System Integration", "High Reliability", "Git/Version Control"]
             }
