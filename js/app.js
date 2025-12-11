@@ -8,16 +8,22 @@ const renderHeader = () => {
     const headerRoot = document.getElementById('header-root');
     const data = resumeData.hero;
     const contact = resumeData.contact;
-    const container = createElement('div', 'max-w-6xl mx-auto p-6 md:p-12');
+    const container = createElement('div', 'max-w-6xl mx-auto p-2 md:p-4');
     const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-center items-start');
     const heroInfo = createElement('div', '');
+    const logoContainer = createElement('div', 'flex justify-center mb-6');
+    const logo = createElement('img', 'w-32 h-32 rounded-full border-4 border-blue-500 shadow-xl object-cover transform hover:scale-105 transition duration-300');
+    logo.src = 'assets/logo_solid.png';
+    logo.alt = `${data.title} Logo`;
+    logoContainer.appendChild(logo);
+    heroInfo.appendChild(logoContainer);
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
     heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2 text-center', data.subtitle));
-    const contactInfo = createElement('div', 'mt-2 flex flex-wrap gap-x-4 gap-y-2 text-left items-center');
+    const contactInfo = createElement('div', 'mt-2 mb-3 flex flex-wrap gap-x-2 gap-y-2 text-left items-center');
     const createContactLink = (icon, text, href) => {
         const a = createElement('a', 'text-blue-200 hover:text-blue-300 transition duration-200 inline-flex items-center text-sm');
         a.href = href;
-        a.innerHTML = `<i data-lucide="${icon}" class="w-3 h-3 text-blue-400 mr-2"></i> ${text}`;
+        a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 text-blue-400 mr-2"></i> ${text}`;
         return a;
     };
     const contactLinks = [{ 
@@ -36,12 +42,12 @@ const renderHeader = () => {
     ];
     contactLinks.forEach((linkData, index) => {
         contactInfo.appendChild(createContactLink(
-            linkData.icon, 
-            linkData.href, 
-            linkData.display
+            linkData.icon,  
+            linkData.display,
+            linkData.href
         ));
         if (index < contactLinks.length - 1) {
-            const separator = createElement('span', 'text-gray-700 text-sm font-light px-2');
+            const separator = createElement('span', 'text-gray-700 text-sm font-light px-1');
             separator.textContent = '|';
             contactInfo.appendChild(separator);
         }
