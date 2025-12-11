@@ -20,27 +20,44 @@ const resumeData = {
         title: "CORE CAPABILITIES",
         items: [
             {
-                title: "Back-End: Enterprise Grade",
+                title: "Backend Development",
                 icon: "server",
                 color: "red-500",
-                skills: ["Java", "Javascript", "C# (.NET Core)", "C++", "PHP", "SQL Server"]
+                skills: ["Java", "Javascript", "C# (.NET Core)", "C++", "PHP"]
             },
             {
-                title: "Front-End: Modern Stack",
+                title: "Frontend Development",
                 icon: "code",
-                color: "blue-500",
-                skills: ["TypeScript/JavaScript (Angular, Vue, React, Ionic)", "HTML/CSS3", "Bootstrap"]
+                color: "orange-500",
+                skills: ["Java (JavaFX/Swing)", "C# (WPF/WinForms)", "TypeScript/JavaScript (Angular, Vue, React, Ionic)", "HTML/CSS3"]
             },
             {
-                title: "Automation: High-Reliability",
+                title: "Data & Database Design", 
+                icon: "database", 
+                color: "yellow-500",
+                skills: [ "Data Modeling (ERD)",  "SQL Server",  "PostgreSQL",  "MySQl", "SQLite", "MongoDB",  "T-SQL / Stored Procedures"] 
+            },
+            {
+                title: "Automation",
                 icon: "bot",
                 color: "green-500",
                 skills: ["Selenium (Java/C#)", "Advanced UI Automation", "ETL Processing", "Data Sniffing"]
             },
             {
-                title: "Architectural Principles",
-                icon: "tower",
-                color: "yellow-500",
+                title: "Cloud & DevOps",
+                icon: "cloud",
+                color: "indigo-500",
+                skills: [
+                    "CI/CD Pipelines (Jenkins/GitLab)",
+                    "Docker/Containerization",
+                    "AWS/Azure Fundamentals",
+                    "System Monitoring/Alerting",
+                ]
+            },
+            {
+                title: "Architectural Design",
+                icon: "tower-control",
+                color: "purple-500",
                 skills: ["Scalable Design", "System Integration", "High Reliability", "Git/Version Control"]
             }
         ]

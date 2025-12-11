@@ -79,7 +79,7 @@ const renderCapabilities = () => {
     const data = resumeData.capabilities;
     const section = createElement('section', 'mb-16');
     section.appendChild(createElement('h2', 'section-header', data.title));
-    const gridContainer = createElement('div', 'grid sm:grid-cols-2 lg:grid-cols-4 gap-6');
+    const gridContainer = createElement('div', 'grid sm:grid-cols-1 lg:grid-cols-3 gap-6');
     data.items.forEach(item => {
         const card = createElement('div', `bg-[#161b22] p-6 rounded-sm shadow-lg border-l-4 border-${item.color}`);
         card.innerHTML += `<i data-lucide="${item.icon}" class="w-6 h-6 text-${item.color.replace('500', '400')} mb-3"></i>`;
