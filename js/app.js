@@ -95,30 +95,35 @@ const renderCapabilities = () => {
     section.appendChild(gridContainer);
     root.appendChild(section);
 };
-const renderProjects = () => {
+const renderExperience = () => {
     const root = document.getElementById('content-root');
-    const data = resumeData.projects;
+    const data = resumeData.experience;
     const section = createElement('section', 'mb-6');
     section.appendChild(createElement('h2', 'section-header', data.title));
     const spaceContainer = createElement('div', 'space-y-8');
-    data.items.forEach(project => {
-        const card = createElement('div', 'project-card');
-        // Header and Icon
+    data.items.forEach(experience => {
+        const card = createElement('div', 'experience-card');
         const headerFlex = createElement('div', 'flex items-center mb-3');
-        headerFlex.innerHTML = `<i data-lucide="${project.icon}" class="w-6 h-6 text-blue-400 mr-3"></i>`;
-        headerFlex.appendChild(createElement('h3', 'text-2xl font-bold text-white', project.title));
+        headerFlex.innerHTML = `<i data-lucide="${experience.icon}" class="w-6 h-6 text-blue-400 mr-3"></i>`;
+        headerFlex.appendChild(createElement('h3', 'text-2xl font-bold text-white', experience.title));
         card.appendChild(headerFlex);
-        // Target
-        card.appendChild(createElement('p', 'text-sm text-blue-500 mb-3', `// Target: ${project.target}`));
-        // Description
-        const descP = createElement('p', 'text-gray-400 leading-relaxed');
-        // Replace **bold** with <b> tag for rendering
-        descP.innerHTML = project.description.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-        card.appendChild(descP);
-        // Tags
+        card.appendChild(createElement('p', 'text-sm font-bold text-blue-500 mb-3', `${experience.target}`));
+        const listContainer = createElement('div', 'text-gray-400 leading-relaxed mt-4');
+        const ul = createElement('ul', 'list-disc ml-5 space-y-2');
+        const rawItems = experience.description.split('\n').filter(item => item.trim().startsWith('*'));
+        rawItems.forEach(itemText => {
+            const cleanedText = itemText.replace(/^\*\s*/, '').trim();
+            if (cleanedText) {
+                const li = createElement('li', '');
+                li.innerHTML = cleanedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                ul.appendChild(li);
+            }
+        });
+        listContainer.appendChild(ul);
+        card.appendChild(listContainer);
         const tagsContainer = createElement('div', 'mt-4 flex flex-wrap');
-        project.tags.forEach(tag => {
-            tagsContainer.appendChild(createElement('span', 'skill-chip', tag));
+        experience.tags.forEach(tag => {
+            tagsContainer.appendChild(createElement('span', 'date-chip', tag));
         });
         card.appendChild(tagsContainer);
         spaceContainer.appendChild(card);
@@ -147,7 +152,7 @@ const initializePortfolio = () => {
     renderHeader();
     renderSummary();
     renderCapabilities();
-    renderProjects();
+    renderExperience();
     renderFooter();
     if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();

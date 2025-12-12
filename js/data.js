@@ -62,30 +62,68 @@ const resumeData = {
             }
         ]
     },
+    experience: {
+        title: "ENTERPRISE PROFESSIONAL EXPERIENCE",
+        intro_note: "Below is a chronological list of professional roles detailing full-stack development, systems integration, and maintenance contributions. Due to the proprietary nature of this work, client links are omitted.",
+        items: [
+            {
+                title: "Nortech International",
+                icon: "briefcase", 
+                target: "Senior Software Developer | Electronics and Software Solutions",
+                description: 
+                    "* Full-stack software design, development, and integration for various platforms, including **web, desktop, and mobile** applications.\n" +
+                    "* Specialized in **hardware integration into software systems** to enhance product functionality and data processing.\n" +
+                    "* Responsible for the **maintenance and modernization of legacy/old code bases**, ensuring system stability, security, and performance.\n" +
+                    "* Contributed to the development lifecycle across all stages (design, coding, integration, and deployment).\n" +
+                    "* Continuous application of expertise in **C#, .Net Core, Java, PHP/Laravel, and JavaScript** across all projects.",
+                tags: ["January 2019 – Present (Current)"]
+            },
+            {
+                title: "Lemonaide Ltd",
+                icon: "briefcase",
+                target: "Software Developer | Software Development & Financial Crime",
+                description: 
+                    "* Full-stack development, maintenance, and system analysis using **C#, .Net Framework, and .Net Core**.\n" +
+                    "* Built the **SmartKos** e-commerce and delivery application **solo in 3 months** (ASP.NET Core 2, Azure SQL DB), including a web scrapping tool to gather product data from major retailers.\n" +
+                    "* Provided crucial QA and integration support on the **Honeycomb Application** (FIC compliance system) and the **UWE/Uwe Assist** project (Raspberry Pi/scale integration).\n" +
+                    "* Completed and built the **Boskruin Butchery** e-commerce store and successfully resolved all outstanding requirements and bugs for the **Fleetwach** web/mobile app.\n" +
+                    "* Provided high-level support and mentorship to a junior developer, tackling complex implementation challenges.",
+                tags: ["January 2018 – December 2018"]
+            },
+            {
+                title: "Hellomarketing",
+                icon: "briefcase",
+                target: "IT Programmer | Marketing",
+                description: 
+                    "* Managed full-stack development, maintenance, and hosting infrastructure for multiple web properties and mobile applications.\n" +
+                    "* Designed and built the **B4B Door Knocker Mobile App** (Android/iOS) using **Ionic framework** and a **Slim PHP API** to capture and manage leads via the **Salesforce CRM**.\n" +
+                    "* Developed a CRM-like website feature and a web-based search engine using the **Laravel PHP Framework** and **MySQL**.\n" +
+                    "* Engineered a data processing solution using a **Java script/algorithm** to sort, check, and validate over **3 million lead records** from spreadsheets before database entry.",
+                tags: ["February 2016 – November 2017"]
+            },
+            {
+                title: "Tanjent Ltd",
+                icon: "briefcase",
+                target: "Developer | Web Development & Social Media Marketing",
+                description: 
+                    "* Built from scratch a Mobile App for a Small Poker League Tournament using the **Ionic framework** and **Firebase**.\n" +
+                    "* Developed and worked on various websites using **Opencart** and **WordPress**.\n" +
+                    "* Contributed to the first phase development of the **Versofy** website before relocating.",
+                tags: ["March 2015 – December 2015"]
+            },
+            {
+                title: "STS",
+                icon: "briefcase",
+                target: "Tester and Automation Tester | IT",
+                description: 
+                    "* Performed software testing (manual and automation) using **Selenium and Java**.",
+                tags: ["July 2014 – October 2014"]
+            }
+        ]
+    },
     projects: {
         title: "PROJECT HIGHLIGHTS",
         items: [
-            {
-                title: "MISSION-CRITICAL DESKTOP AUTOMATION BOT (RPA)",
-                icon: "mouse-pointer-click",
-                target: "RPA, Non-API Automation, RDP/VDI Stability",
-                description: "Engineered a specialized, non-API automation solution to handle high-volume, repetitive data processing within a proprietary desktop application. The solution used **visual and pattern recognition** (RPA techniques) to accurately perform complex click sequences and large-scale batch file processing (e.g., XML import workflows). Focused heavily on stabilizing the bot's execution to ensure **99.9% reliability** in remote desktop environments, crucial for continuous operations.",
-                tags: ["Java/SikuliX", "Workflow Optimization", "Remote Execution Stability"]
-            },
-            {
-                title: "REAL-TIME DATA ACQUISITION & ETL PLATFORM (C# / SQL)",
-                icon: "factory",
-                target: "C# .NET Core, Data Engineering, System Sniffing",
-                description: "Developed a centralized platform for capturing and processing real-time operational data streaming from manufacturing floor equipment. Utilized **.NET Core (C#) services** for sophisticated data sniffing and replication techniques to structure and cleanse the data, feeding it into a high-availability **SQL Server** database. This architecture provided immediate reporting capabilities and minimized data latency for critical monitoring systems.",
-                tags: ["C# / .NET Core", "SQL Server", "ETL/Data Processing"]
-            },
-            {
-                title: "ANGULAR & JAVA SECURE MANAGEMENT PORTAL",
-                icon: "layers-3d",
-                target: "Full-Stack Development, Angular, Java/Enterprise APIs",
-                description: "Designed and implemented a secure internal resource and project management portal. The modern, single-page application (SPA) was built using **Angular and TypeScript** for optimal user experience and maintainability. The secure backend API was engineered in **Java** to efficiently manage complex, concurrent requests and ensure robust data integrity for sensitive organizational information.",
-                tags: ["Angular / TypeScript", "Java", "RESTful APIs"]
-            }
         ]
     },
     footer: {
