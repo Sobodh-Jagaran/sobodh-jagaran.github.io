@@ -64,14 +64,11 @@ const renderSummary = () => {
     const root = document.getElementById('content-root');
     const data = resumeData.summary;
     const section = createElement('section', 'mt-6 mb-6 p-8 bg-[#161b22] rounded-sm shadow-2xl border-t-4 border-blue-500');
-    // Header
     const header = createElement('h2', 'text-2xl font-bold text-blue-400 mb-4 flex items-center');
     header.innerHTML = `<i data-lucide="${data.icon}" class="w-6 h-6 mr-3 text-blue-400"></i> ${data.title}`;
     section.appendChild(header);
-    // Paragraphs
     data.paragraphs.forEach(pText => {
         const p = createElement('p', 'text-gray-400 leading-relaxed mb-4');
-        // Replace **bold** with <b> tag for rendering
         p.innerHTML = pText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
         section.appendChild(p);
     });
@@ -134,6 +131,134 @@ const renderExperience = () => {
     section.appendChild(spaceContainer);
     root.appendChild(section);
 };
+const renderProjects = () => {
+    const root = document.getElementById('content-root');
+    const data = resumeData.projects;
+    const section = createElement('section', 'mb-6');
+    section.appendChild(createElement('h2', 'section-header', data.title));
+    if (!data.items || data.items.length === 0) {
+        const placeholder = createElement('div', 'p-12 bg-[#161b22] rounded-xl border-2 border-dashed border-gray-700 text-center flex flex-col items-center justify-center');
+        placeholder.innerHTML = `
+            <i data-lucide="blocks" class="w-10 h-10 text-red-500 mb-4 animate-pulse"></i>
+            <h3 class="text-2xl font-bold text-white mb-2">Project Highlights: Coming Soon</h3>
+            <p class="text-gray-400 max-w-md">Detailed case studies demonstrating precision, stability, and architectural clarity are being prepared. This section will feature my most impactful, mission-critical solutions.</p>
+        `;
+        section.appendChild(placeholder);
+        root.appendChild(section);
+        return;
+    }
+    const carouselWrapper = createElement('div', 'relative');
+    const carouselInner = createElement('div', 'flex transition-transform duration-500 ease-in-out');
+    carouselInner.id = 'projects-carousel-inner';
+    data.items.forEach((project, index) => {
+        const card = createElement('div', 'min-w-full section-card p-6 opacity-0 transition-opacity duration-500');
+        card.setAttribute('data-slide-index', index);
+        const tagsContainer = createElement('div', 'mb-3 flex flex-wrap justify-end');
+        project.tags.forEach(tag => {
+            tagsContainer.appendChild(createElement('span', 'date-chip', tag));
+        });
+        card.appendChild(tagsContainer);
+        const headerFlex = createElement('div', 'flex items-center mb-3');
+        headerFlex.innerHTML = `<i data-lucide="${project.icon}" class="w-6 h-6 text-blue-400 mr-3"></i>`;
+        headerFlex.appendChild(createElement('h3', 'text-2xl font-bold text-white', project.title));
+        card.appendChild(headerFlex);
+        card.appendChild(createElement('p', 'text-sm text-blue-500 mb-4 font-semibold', project.target));
+        const listContainer = createElement('div', 'text-gray-400 leading-relaxed');
+        const ul = createElement('ul', 'list-disc ml-5 space-y-3');
+        const rawItems = project.description.split('\n').filter(item => item.trim().startsWith('*'));
+        rawItems.forEach(itemText => {
+            const cleanedText = itemText.replace(/^\*\s*/, '').trim();
+            if (cleanedText) {
+                const li = createElement('li', 'pl-1');
+                li.innerHTML = cleanedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                ul.appendChild(li);
+            }
+        });
+        listContainer.appendChild(ul);
+        card.appendChild(listContainer);
+        carouselInner.appendChild(card);
+    });
+    carouselWrapper.appendChild(carouselInner);
+    const navContainer = createElement('div', 'flex justify-between mt-4 space-x-4');
+    const prevBtn = createElement('button', 'nav-button px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-200 flex items-center shadow-lg hover:shadow-xl disabled:opacity-50');
+    prevBtn.id = 'carousel-prev';
+    prevBtn.innerHTML = '<i data-lucide="chevron-left" class="w-5 h-5 mr-1"></i> Previous Project';
+    prevBtn.disabled = true;
+    const nextBtn = createElement('button', 'nav-button px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-200 flex items-center shadow-lg hover:shadow-xl disabled:opacity-50 ml-auto');
+    nextBtn.id = 'carousel-next';
+    nextBtn.innerHTML = 'Next Project <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>';
+    if (data.items.length <= 1) {
+        nextBtn.disabled = true;
+    }
+    navContainer.appendChild(prevBtn);
+    navContainer.appendChild(nextBtn);
+    section.appendChild(carouselWrapper);
+    section.appendChild(navContainer);
+    root.appendChild(section);
+    let currentSlide = 0;
+    const slides = data.items;
+    const inner = document.getElementById('projects-carousel-inner');
+    const slideElements = inner.children;
+    if (slideElements.length > 0) {
+        slideElements[currentSlide].classList.remove('opacity-0');
+        slideElements[currentSlide].classList.add('opacity-100');
+    }
+    const updateCarousel = (newIndex) => {
+        if (newIndex < 0) {
+            newIndex = 0;
+        } else if (newIndex >= slides.length) {
+            newIndex = slides.length - 1;
+        }
+        slideElements[currentSlide].classList.remove('opacity-100');
+        slideElements[currentSlide].classList.add('opacity-0');
+        currentSlide = newIndex;
+        slideElements[currentSlide].classList.remove('opacity-0');
+        slideElements[currentSlide].classList.add('opacity-100');
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === slides.length - 1;
+    };
+    prevBtn.onclick = () => updateCarousel(currentSlide - 1);
+    nextBtn.onclick = () => updateCarousel(currentSlide + 1);
+};
+const renderBlog = () => {
+    const root = document.getElementById('content-root');
+    const data = resumeData.blog;
+    const section = createElement('section', 'mb-6');
+    section.appendChild(createElement('h2', 'section-header', data.title));
+    if (!data.items || data.items.length === 0) {
+        const placeholder = createElement('div', 'p-12 bg-[#161b22] rounded-xl border-2 border-dashed border-gray-700 text-center flex flex-col items-center justify-center');
+        placeholder.innerHTML = `
+            <i data-lucide="wrench" class="w-10 h-10 text-yellow-500 mb-4 animate-pulse"></i>
+            <h3 class="text-2xl font-bold text-white mb-2">Architect's Log: Under Construction</h3>
+            <p class="text-gray-400 max-w-md">The in-depth insights and articles on System Reliability and Software Architecture are planned for a future release. Check back soon for new content!</p>
+        `;
+        section.appendChild(placeholder);
+        root.appendChild(section);
+        return;
+    }
+    const gridContainer = createElement('div', 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6');
+    data.items.forEach(post => {
+        const card = createElement('a', 'section-card p-6 flex flex-col justify-between hover:bg-[#111317] transition duration-300', '');
+        card.href = post.link;
+        card.target = "_blank"; 
+        const headerFlex = createElement('div', 'mb-4');
+        headerFlex.innerHTML = `<i data-lucide="${post.icon}" class="w-8 h-8 text-yellow-400 mb-3 block"></i>`;
+        headerFlex.appendChild(createElement('h3', 'text-xl font-bold text-white mb-2', post.title));
+        headerFlex.appendChild(createElement('p', 'text-gray-400 text-sm mb-4 leading-relaxed', post.summary));
+        card.appendChild(headerFlex);
+        const footerDiv = createElement('div', '');
+        footerDiv.appendChild(createElement('p', 'text-xs font-mono text-gray-500 mb-3', post.date));
+        const tagsContainer = createElement('div', 'flex flex-wrap gap-2');
+        post.tags.forEach(tag => {
+            tagsContainer.appendChild(createElement('span', 'skill-chip text-xs bg-gray-700/50 text-gray-300', tag));
+        });
+        footerDiv.appendChild(tagsContainer);
+        card.appendChild(footerDiv);
+        gridContainer.appendChild(card);
+    });
+    section.appendChild(gridContainer);
+    root.appendChild(section);
+}
 const renderFooter = () => {
     const footerRoot = document.getElementById('footer-root');
     const data = resumeData.footer;
@@ -156,6 +281,8 @@ const initializePortfolio = () => {
     renderSummary();
     renderCapabilities();
     renderExperience();
+    renderProjects();
+    renderBlog(); 
     renderFooter();
     if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();

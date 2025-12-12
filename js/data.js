@@ -127,6 +127,10 @@ const resumeData = {
         items: [
         ]
     },
+    blog: {
+        title: "ARCHITECT'S LOG // LATEST INSIGHTS",
+        items: [] // Empty array for "future" use, triggering the "Coming Soon" message
+    },
     footer: {
         cta: "ACCESS GRANTED: Collaboration Ready",
         message: "Problem-solving, architectural clarity, and system reliability define my engineering approach. Let's discuss how my 10+ years of polyglot experience can deliver a robust solution for you.",
