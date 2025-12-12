@@ -19,6 +19,9 @@ const renderHeader = () => {
     heroInfo.appendChild(logoContainer);
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
     heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2 text-center', data.subtitle));
+    const slogan = createElement('p', 'text-xl font-bold text-blue-200 uppercase tracking-widest text-center py-2 px-4');
+    slogan.textContent = data.slogan;
+    heroInfo.appendChild(slogan);
     const contactInfo = createElement('div', 'mt-2 mb-3 flex flex-wrap gap-x-2 gap-y-2 text-left items-center');
     const createContactLink = (icon, text, href) => {
         const a = createElement('a', 'text-blue-200 hover:text-blue-300 transition duration-200 inline-flex items-center text-sm');

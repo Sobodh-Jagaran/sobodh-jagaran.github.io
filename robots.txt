@@ -1,0 +1,6 @@
+SEO instructions for all web crawlers.
+
+We want search engines to crawl and index the entire public portfolio.
+
+User-agent: *
+Allow: /

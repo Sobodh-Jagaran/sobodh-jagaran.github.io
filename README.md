@@ -6,6 +6,8 @@ This is a dynamic, single-page professional portfolio built to showcase
 expertise in scalable system architecture, full-stack polyglot
 development, and high-reliability automation.
 
+**Slogan: "Don't Just Write Code. Architect Reliability."**
+
 The site is built using a modern dark, high-contrast theme ("Electro
 Blue") implemented with Tailwind CSS. It adheres to the principle of
 separation of concerns by completely isolating content, logic, and

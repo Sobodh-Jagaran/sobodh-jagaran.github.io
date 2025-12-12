@@ -1,7 +1,8 @@
 const resumeData = {
     hero: {
         title: "SOBODH JAGARAN",
-        subtitle: "POLYGLOT FULL-STACK DEVELOPER & SYSTEMS ARCHITECT"
+        subtitle: "POLYGLOT FULL-STACK DEVELOPER & SYSTEMS ARCHITECT",
+        slogan: "Don't Just Write Code. Architect Reliability.",
     },
     contact: {
         phone: "+27 81 7372 497",
