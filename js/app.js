@@ -9,22 +9,27 @@ const renderHeader = () => {
     const data = resumeData.hero;
     const contact = resumeData.contact;
     const container = createElement('div', 'max-w-6xl mx-auto p-2 md:p-4');
-    const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-center items-start');
-    const heroInfo = createElement('div', '');
+    const gridContainer = createElement('div', 'grid grid-cols-1 lg:grid-cols-12 items-center text-center');
+    const logoCol = createElement('div', 'hidden lg:col-span-2 lg:flex justify-start items-center');
     const logoContainer = createElement('div', 'flex justify-center mb-6');
     const logo = createElement('img', 'w-32 h-32 rounded-full border-4 border-blue-500 shadow-xl object-cover transform hover:scale-105 transition duration-300');
     logo.src = 'assets/logo_solid.png';
     logo.alt = `${data.title} Logo`;
     logoContainer.appendChild(logo);
-    heroInfo.appendChild(logoContainer);
+    logoCol.appendChild(logoContainer);
+    gridContainer.appendChild(logoCol);
+    const contextCol = createElement('div', 'col-span-1 lg:col-span-8');
+    const flexContainer = createElement('div', 'flex flex-col md:flex-row justify-center items-start');
+    const heroInfo = createElement('div', '');
     heroInfo.appendChild(createElement('h1', 'text-5xl font-extrabold tracking-widest text-blue-400 text-center', data.title));
     heroInfo.appendChild(createElement('p', 'text-gray-300 text-2xl mt-2 text-center', data.subtitle));
     const slogan = createElement('p', 'text-xl font-bold text-blue-200 uppercase tracking-widest text-center py-2 px-4');
     slogan.textContent = data.slogan;
     heroInfo.appendChild(slogan);
-    const contactInfo = createElement('div', 'mt-2 mb-3 flex flex-wrap gap-x-2 gap-y-2 text-left items-center');
+    const contactInfo = createElement('div', 'mt-2 mb-3 flex flex-col items-center justify-center');
+    const linkWrapper = createElement('div', 'flex flex-wrap items-center justify-center gap-y-2')
     const createContactLink = (icon, text, href) => {
-        const a = createElement('a', 'text-blue-200 hover:text-blue-300 transition duration-200 inline-flex items-center text-sm');
+        const a = createElement('a', 'text-blue-200 hover:text-blue-300 transition duration-200 inline-flex items-center text-sm text-center');
         a.href = href;
         a.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 text-blue-400 mr-2"></i> ${text}`;
         return a;
@@ -44,20 +49,29 @@ const renderHeader = () => {
         },
     ];
     contactLinks.forEach((linkData, index) => {
-        contactInfo.appendChild(createContactLink(
+        linkWrapper.appendChild(createContactLink(
             linkData.icon,  
             linkData.display,
             linkData.href
         ));
         if (index < contactLinks.length - 1) {
-            const separator = createElement('span', 'text-gray-700 text-sm font-light px-1');
+            const separator = createElement('span', 'text-gray-700 text-sm font-light px-2');
             separator.textContent = '|';
-            contactInfo.appendChild(separator);
+            linkWrapper.appendChild(separator);
         }
     });
+    contactInfo.appendChild(linkWrapper);
     heroInfo.appendChild(contactInfo);
     flexContainer.appendChild(heroInfo);
-    container.appendChild(flexContainer);
+    contextCol.appendChild(flexContainer);
+    gridContainer.appendChild(contextCol);
+    const avatarCol = createElement('div', 'hidden lg:col-span-2 lg:flex justify-end items-center'); 
+    const avatar = createElement('img', 'w-32 h-32 rounded-full border-4 border-blue-500 shadow-xl object-cover transform hover:scale-105 transition duration-300');
+    avatar.src = 'assets/profile_pic.png';
+    avatar.alt = `${data.title} Avatar`;
+    avatarCol.appendChild(avatar);
+    gridContainer.appendChild(avatarCol);
+    container.appendChild(gridContainer);
     headerRoot.appendChild(container);
 };
 const renderSummary = () => {
