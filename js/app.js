@@ -145,6 +145,45 @@ const renderExperience = () => {
     section.appendChild(spaceContainer);
     root.appendChild(section);
 };
+const renderInsights = () => {
+    const root = document.getElementById('content-root');
+    const data = resumeData.insights;
+    const section = createElement('section', 'mb-6');
+    section.appendChild(createElement('h2', 'section-header', data.title));
+    if (!data.items || data.items.length === 0) {
+        const placeholder = createElement('div', 'p-12 bg-[#161b22] rounded-xl border-2 border-dashed border-gray-700 text-center flex flex-col items-center justify-center');
+        placeholder.innerHTML = `
+            <i data-lucide="wrench" class="w-10 h-10 text-yellow-500 mb-4 animate-pulse"></i>
+            <h3 class="text-2xl font-bold text-white mb-2">Architect's Log: Under Construction</h3>
+            <p class="text-gray-400 max-w-md">The in-depth insights and articles on System Reliability and Software Architecture are planned for a future release. Check back soon for new content!</p>
+        `;
+        section.appendChild(placeholder);
+        root.appendChild(section);
+        return;
+    }
+    const gridContainer = createElement('div', 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6');
+    data.items.forEach(post => {
+        const card = createElement('a', 'section-card p-6 flex flex-col justify-between hover:bg-[#111317] transition duration-300', '');
+        card.href = post.link;
+        card.target = "_blank"; 
+        const headerFlex = createElement('div', 'mb-4');
+        headerFlex.innerHTML = `<i data-lucide="${post.icon}" class="w-8 h-8 text-yellow-400 mb-3 block"></i>`;
+        headerFlex.appendChild(createElement('h3', 'text-xl font-bold text-white mb-2', post.title));
+        headerFlex.appendChild(createElement('p', 'text-gray-400 text-sm mb-4 leading-relaxed', post.summary));
+        card.appendChild(headerFlex);
+        const footerDiv = createElement('div', '');
+        footerDiv.appendChild(createElement('p', 'text-xs font-mono text-gray-500 mb-3', post.date));
+        const tagsContainer = createElement('div', 'flex flex-wrap gap-2');
+        post.tags.forEach(tag => {
+            tagsContainer.appendChild(createElement('span', 'skill-chip text-xs bg-gray-700/50 text-gray-300', tag));
+        });
+        footerDiv.appendChild(tagsContainer);
+        card.appendChild(footerDiv);
+        gridContainer.appendChild(card);
+    });
+    section.appendChild(gridContainer);
+    root.appendChild(section);
+}
 const renderProjects = () => {
     const root = document.getElementById('content-root');
     const data = resumeData.projects;
@@ -234,45 +273,6 @@ const renderProjects = () => {
     prevBtn.onclick = () => updateCarousel(currentSlide - 1);
     nextBtn.onclick = () => updateCarousel(currentSlide + 1);
 };
-const renderBlog = () => {
-    const root = document.getElementById('content-root');
-    const data = resumeData.blog;
-    const section = createElement('section', 'mb-6');
-    section.appendChild(createElement('h2', 'section-header', data.title));
-    if (!data.items || data.items.length === 0) {
-        const placeholder = createElement('div', 'p-12 bg-[#161b22] rounded-xl border-2 border-dashed border-gray-700 text-center flex flex-col items-center justify-center');
-        placeholder.innerHTML = `
-            <i data-lucide="wrench" class="w-10 h-10 text-yellow-500 mb-4 animate-pulse"></i>
-            <h3 class="text-2xl font-bold text-white mb-2">Architect's Log: Under Construction</h3>
-            <p class="text-gray-400 max-w-md">The in-depth insights and articles on System Reliability and Software Architecture are planned for a future release. Check back soon for new content!</p>
-        `;
-        section.appendChild(placeholder);
-        root.appendChild(section);
-        return;
-    }
-    const gridContainer = createElement('div', 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6');
-    data.items.forEach(post => {
-        const card = createElement('a', 'section-card p-6 flex flex-col justify-between hover:bg-[#111317] transition duration-300', '');
-        card.href = post.link;
-        card.target = "_blank"; 
-        const headerFlex = createElement('div', 'mb-4');
-        headerFlex.innerHTML = `<i data-lucide="${post.icon}" class="w-8 h-8 text-yellow-400 mb-3 block"></i>`;
-        headerFlex.appendChild(createElement('h3', 'text-xl font-bold text-white mb-2', post.title));
-        headerFlex.appendChild(createElement('p', 'text-gray-400 text-sm mb-4 leading-relaxed', post.summary));
-        card.appendChild(headerFlex);
-        const footerDiv = createElement('div', '');
-        footerDiv.appendChild(createElement('p', 'text-xs font-mono text-gray-500 mb-3', post.date));
-        const tagsContainer = createElement('div', 'flex flex-wrap gap-2');
-        post.tags.forEach(tag => {
-            tagsContainer.appendChild(createElement('span', 'skill-chip text-xs bg-gray-700/50 text-gray-300', tag));
-        });
-        footerDiv.appendChild(tagsContainer);
-        card.appendChild(footerDiv);
-        gridContainer.appendChild(card);
-    });
-    section.appendChild(gridContainer);
-    root.appendChild(section);
-}
 const renderFooter = () => {
     const footerRoot = document.getElementById('footer-root');
     const data = resumeData.footer;
@@ -295,8 +295,8 @@ const initializePortfolio = () => {
     renderSummary();
     renderCapabilities();
     renderExperience();
+    renderInsights();
     renderProjects();
-    renderBlog(); 
     renderFooter();
     if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();

@@ -122,14 +122,14 @@ const resumeData = {
             }
         ]
     },
+    insights: {
+        title: "ARCHITECT INSIGHTS",
+        items: [] // Empty array for "future" use, triggering the "Coming Soon" message
+    },
     projects: {
         title: "PROJECT HIGHLIGHTS",
         items: [
         ]
-    },
-    blog: {
-        title: "ARCHITECT'S LOG // LATEST INSIGHTS",
-        items: [] // Empty array for "future" use, triggering the "Coming Soon" message
     },
     footer: {
         cta: "ACCESS GRANTED: Collaboration Ready",
