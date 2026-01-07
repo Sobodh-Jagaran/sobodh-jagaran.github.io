@@ -1,0 +1,126 @@
+{
+    "hero": {
+        "title": "SOBODH JAGARAN",
+        "subtitle": "POLYGLOT FULL-STACK DEVELOPER & SYSTEMS ARCHITECT",
+        "slogan": "Don't Just Write Code. Architect Reliability.",
+        "avatar": ""
+    },
+    "contact": {
+        "phone": "+27 81 7372 497",
+        "email": "sobodh10@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/sobodh-jagaran/",
+        "resumeLink": "/assets/sobodh_jagaran_resume.pdf"
+    },
+        "summary": {
+        "title": "EXECUTIVE SUMMARY",
+        "icon": "terminal",
+        "paragraphs": [
+            "Polyglot Full-Stack Developer with 10+ years of experience architecting scalable systems, integrating complex enterprise technologies, and automating mission-critical workflows. Experience in the electronic manufacturing industry has instilled a development approach rooted in **precision, stability, and long-term reliability.**",
+            "I specialize in turning ambiguous requirements into clean, maintainable solutions—ranging from enterprise back-end platforms and modern front-end applications to internal tools focused on data scraping, sniffing, replication, and ETL processing."
+        ]
+    },
+    "capabilities": {
+        "title": "CORE CAPABILITIES",
+        "items": [
+            {
+                "title": "Backend Development",
+                "icon": "server",
+                "color": "red-500",
+                "skills": ["Java", "Javascript", "C# (.NET Core)", "C++", "PHP"]
+            },
+            {
+                "title": "Frontend Development",
+                "icon": "code",
+                "color": "orange-500",
+                "skills": ["Java (JavaFX/Swing)", "C# (WPF/WinForms)", "TypeScript/JavaScript (Angular, Vue, React, Ionic)", "HTML/CSS3"]
+            },
+            {
+                "title": "Data & Database Design",
+                "icon": "database",
+                "color": "yellow-500",
+                "skills": ["Data Modeling (ERD)", "SQL Server", "PostgreSQL", "MySQl", "SQLite", "MongoDB", "T-SQL / Stored Procedures"]
+            },
+            {
+                "title": "Automation",
+                "icon": "bot",
+                "color": "green-500",
+                "skills": ["Selenium (Java/C#)", "Advanced UI Automation", "ETL Processing", "Data Sniffing"]
+            },
+            {
+                "title": "Cloud & DevOps",
+                "icon": "cloud",
+                "color": "indigo-500",
+                "skills": [
+                    "CI/CD Pipelines (Jenkins/GitLab)",
+                    "Docker/Containerization",
+                    "AWS/Azure Fundamentals",
+                    "System Monitoring/Alerting"
+                ]
+            },
+            {
+                "title": "Architectural Design",
+                "icon": "tower-control",
+                "color": "purple-500",
+                "skills": ["Scalable Design", "System Integration", "High Reliability", "Git/Version Control"]
+            }
+        ]
+    },
+    "experience": {
+        "title": "ENTERPRISE PROFESSIONAL EXPERIENCE",
+        "intro_note": "Below is a chronological list of professional roles detailing full-stack development, systems integration, and maintenance contributions. Due to the proprietary nature of this work, client links are omitted.",
+        "items": [
+            {
+                "title": "Nortech International",
+                "icon": "briefcase",
+                "target": "Senior Software Developer | Electronics and Software Solutions",
+                "description": "* Full-stack software design, development, and integration for various platforms, including **web, desktop, and mobile** applications.\n* Specialized in **hardware integration into software systems** to enhance product functionality and data processing.\n* Responsible for the **maintenance and modernization of legacy/old code bases**, ensuring system stability, security, and performance.\n* Contributed to the development lifecycle across all stages (design, coding, integration, and deployment).\n* Continuous application of expertise in **C#, .Net Core, Java, PHP/Laravel, and JavaScript** across all projects.",
+                "tags": ["January 2019 – Present (Current)"]
+            },
+            {
+                "title": "Lemonaide Ltd",
+                "icon": "briefcase",
+                "target": "Software Developer | Software Development & Financial Crime",
+                "description": "* Full-stack development, maintenance, and system analysis using **C#, .Net Framework, and .Net Core**.\n* Built the **SmartKos** e-commerce and delivery application **solo in 3 months** (ASP.NET Core 2, Azure SQL DB), including a web scrapping tool to gather product data from major retailers.\n* Provided crucial QA and integration support on the **Honeycomb Application** (FIC compliance system) and the **UWE/Uwe Assist** project (Raspberry Pi/scale integration).\n* Completed and built the **Boskruin Butchery** e-commerce store and successfully resolved all outstanding requirements and bugs for the **Fleetwach** web/mobile app.\n* Provided high-level support and mentorship to a junior developer, tackling complex implementation challenges.",
+                "tags": ["January 2018 – December 2018"]
+            },
+            {
+                "title": "Hellomarketing",
+                "icon": "briefcase",
+                "target": "IT Programmer | Marketing",
+                "description": "* Managed full-stack development, maintenance, and hosting infrastructure for multiple web properties and mobile applications.\n* Designed and built the **B4B Door Knocker Mobile App** (Android/iOS) using **Ionic framework** and a **Slim PHP API** to capture and manage leads via the **Salesforce CRM**.\n* Developed a CRM-like website feature and a web-based search engine using the **Laravel PHP Framework** and **MySQL**.\n* Engineered a data processing solution using a **Java script/algorithm** to sort, check, and validate over **3 million lead records** from spreadsheets before database entry.",
+                "tags": ["February 2016 – November 2017"]
+            },
+            {
+                "title": "Tanjent Ltd",
+                "icon": "briefcase",
+                "target": "Developer | Web Development & Social Media Marketing",
+                "description": "* Built from scratch a Mobile App for a Small Poker League Tournament using the **Ionic framework** and **Firebase**.\n* Developed and worked on various websites using **Opencart** and **WordPress**.\n* Contributed to the first phase development of the **Versofy** website before relocating.",
+                "tags": ["March 2015 – December 2015"]
+            },
+            {
+                "title": "STS",
+                "icon": "briefcase",
+                "target": "Tester and Automation Tester | IT",
+                "description": "* Performed software testing (manual and automation) using **Selenium and Java**.",
+                "tags": ["July 2014 – October 2014"]
+            }
+        ]
+    },
+    "insights": {
+        "title": "ARCHITECT INSIGHTS",
+        "items": []
+    },
+    "projects": {
+        "title": "PROJECT HIGHLIGHTS",
+        "intro_note": "The following examples showcase complex systems designed for stability, concurrency, and maintainability across various industry sectors. (Content is currently a placeholder)",
+        "items": []
+    },
+    "footer": {
+        "cta": "ACCESS GRANTED: Collaboration Ready",
+        "message": "Problem-solving, architectural clarity, and system reliability define my engineering approach. Let's discuss how my 10+ years of polyglot experience can deliver a robust solution for you.",
+        "contactButton": {
+            "text": "INITIATE CONTACT",
+            "href": "mailto:sobodh10@gmail.com"
+        }
+    }
+}
